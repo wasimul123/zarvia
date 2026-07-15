@@ -101,29 +101,32 @@ export function OccasionChapter({ occasion, title, line, index }: Props) {
           <p className="mt-4 max-w-sm font-body text-base leading-relaxed text-muted sm:mt-5 sm:text-lg">
             {line}
           </p>
-          <Link
-            href={`/occasions/${occasion}`}
-            className="mt-4 inline-block py-2 font-display text-[0.65rem] tracking-[0.16em] uppercase text-graphite underline decoration-line underline-offset-8 hover:decoration-graphite"
-          >
-            View {title.toLowerCase()} pieces
-          </Link>
 
-          {featured && (
+          <div className="mt-6 flex flex-col gap-8 sm:mt-8">
             <Link
-              href={`/product/${featured.slug}`}
-              className="mt-8 group inline-flex flex-col gap-1 border-t border-line pt-5 sm:mt-10 sm:pt-6"
+              href={`/occasions/${occasion}`}
+              className="w-fit font-display text-[0.65rem] tracking-[0.16em] uppercase text-graphite underline decoration-line underline-offset-8 hover:decoration-graphite"
             >
-              <span className="font-display text-[0.65rem] tracking-[0.18em] uppercase text-metal">
-                Featured · Limited · {featured.limitedQty} left
-              </span>
-              <span className="font-display text-xl text-graphite transition-colors group-hover:text-accent-strong sm:text-2xl">
-                {featured.name}
-              </span>
-              <span className="font-body text-muted">
-                {formatPrice(featured.price)}
-              </span>
+              View {title.toLowerCase()} pieces
             </Link>
-          )}
+
+            {featured ? (
+              <Link
+                href={`/product/${featured.slug}`}
+                className="group flex w-full max-w-sm flex-col gap-1 border-t border-line pt-6"
+              >
+                <span className="font-display text-[0.65rem] tracking-[0.18em] uppercase text-metal">
+                  Featured · Limited · {featured.limitedQty} left
+                </span>
+                <span className="font-display text-xl text-graphite transition-colors group-hover:text-accent-strong sm:text-2xl">
+                  {featured.name}
+                </span>
+                <span className="font-body text-muted">
+                  {formatPrice(featured.price)}
+                </span>
+              </Link>
+            ) : null}
+          </div>
         </motion.div>
       </div>
     </section>
