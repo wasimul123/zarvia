@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, useSyncExternalStore } from "react";
+import { BrandLogo } from "@/components/brand/BrandLogo";
 import { useCart } from "@/store/cart";
 
 function useCartCount() {
@@ -63,12 +64,10 @@ export function SiteNav() {
       <nav className="safe-px mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 sm:h-16 sm:px-8 lg:h-20 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:px-10">
         <Link
           href="/"
-          className={`font-display text-base tracking-[0.22em] uppercase transition-colors sm:text-lg lg:text-xl ${
-            onDarkHero ? "text-pearl" : "text-graphite"
-          }`}
+          className="relative shrink-0 transition-opacity hover:opacity-90"
           aria-label="Zarvia home"
         >
-          Zarvia
+          <BrandLogo variant="nav" priority />
         </Link>
 
         <div className="hidden items-center gap-7 lg:flex">
@@ -140,7 +139,6 @@ export function SiteNav() {
         </div>
       </nav>
 
-      {/* Mobile full-screen explore menu */}
       <div
         className={`fixed inset-x-0 top-14 bottom-0 z-30 bg-pearl transition-[transform,opacity] duration-300 ease-out sm:top-16 lg:hidden ${
           menuOpen
