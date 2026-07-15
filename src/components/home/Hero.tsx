@@ -100,9 +100,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-3 font-display text-[clamp(3.25rem,18vw,9.5rem)] font-medium leading-[0.88] tracking-[-0.03em] text-pearl"
+            className="font-brand mt-3 text-[clamp(2.75rem,12vw,7.5rem)] leading-[1.05] text-pearl"
           >
-            Zarvia
+            ZARVIA
           </motion.h1>
 
           <motion.p

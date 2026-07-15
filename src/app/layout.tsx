@@ -9,6 +9,7 @@ const syne = Syne({
   variable: "--font-syne",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 const newsreader = Newsreader({
@@ -59,8 +60,8 @@ export default function RootLayout({
           <footer className="relative z-10 border-t border-line px-5 py-12 sm:px-8 lg:px-10">
             <div className="mx-auto flex max-w-7xl flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
               <div>
-                <p className="font-display text-sm tracking-[0.2em] uppercase text-graphite">
-                  Zarvia
+                <p className="font-brand text-sm text-graphite">
+                  ZARVIA
                 </p>
                 <p className="mt-3 max-w-xs font-body text-sm text-muted">
                   Limited edition imitation jewellery for rare occasions.

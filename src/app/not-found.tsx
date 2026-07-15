@@ -13,7 +13,7 @@ export default function NotFound() {
         This edition may have closed, or the link is incomplete.
       </p>
       <Link href="/" className="btn-primary mt-8">
-        Return to Zarvia
+        Return to ZARVIA
       </Link>
     </div>
   );

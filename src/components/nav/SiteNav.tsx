@@ -63,12 +63,12 @@ export function SiteNav() {
       <nav className="safe-px mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 sm:h-16 sm:px-8 lg:h-20 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:px-10">
         <Link
           href="/"
-          className={`font-display text-base tracking-[0.22em] uppercase transition-colors sm:text-lg lg:text-xl ${
+          className={`font-brand text-base transition-colors sm:text-lg lg:text-xl ${
             onDarkHero ? "text-pearl" : "text-graphite"
           }`}
-          aria-label="Zarvia home"
+          aria-label="ZARVIA home"
         >
-          Zarvia
+          ZARVIA
         </Link>
 
         <div className="hidden items-center gap-7 lg:flex">
