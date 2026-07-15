@@ -8,8 +8,9 @@ import {
   useTransform,
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { formatPrice, products } from "@/data/products";
+import { formatPrice, productCover, products } from "@/data/products";
 import { ProductCard } from "@/components/product/ProductCard";
+import { ProductImage } from "@/components/product/ProductImage";
 
 function DesktopRunway() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -72,16 +73,20 @@ function DesktopRunway() {
               href={`/product/${product.slug}`}
               className="group relative block w-[48vw] max-w-[420px] shrink-0 lg:w-[32vw]"
             >
-              <div className="relative aspect-[3/4] w-full overflow-hidden">
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-ink">
                 <motion.div
-                  initial={{ opacity: 0, scale: 1.06 }}
+                  initial={{ opacity: 0, scale: 1.04 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.8, delay: i * 0.04 }}
-                  className="media-fill"
-                  style={{ background: product.placeholderHue }}
-                />
-                <div className="absolute inset-0 silk-sheen opacity-30 transition-opacity duration-500 group-hover:opacity-50" />
+                  className="absolute inset-0"
+                >
+                  <ProductImage
+                    src={productCover(product)}
+                    alt={product.name}
+                    sizes="(max-width: 1024px) 48vw, 32vw"
+                  />
+                </motion.div>
               </div>
               <div className="mt-4 flex items-baseline justify-between gap-4">
                 <div className="min-w-0">

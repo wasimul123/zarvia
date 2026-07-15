@@ -2,7 +2,7 @@
 
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { products, type Product } from "@/data/products";
+import { productCover, products, type Product } from "@/data/products";
 
 export type CartLine = {
   productId: string;
@@ -12,7 +12,7 @@ export type CartLine = {
   quantity: number;
   finish: string;
   size: string;
-  placeholderHue: string;
+  image: string;
 };
 
 type CartState = {
@@ -69,7 +69,7 @@ export const useCart = create<CartState>()(
                 quantity,
                 finish,
                 size,
-                placeholderHue: product.placeholderHue,
+                image: productCover(product),
               },
             ],
           };
@@ -103,10 +103,9 @@ export const useCart = create<CartState>()(
         get().lines.reduce((sum, l) => sum + l.price * l.quantity, 0),
     }),
     {
-      name: "zarvia-cart",
+      name: "zarvia-cart-v2",
       partialize: (state) => ({ lines: state.lines }),
       onRehydrateStorage: () => (state) => {
-        // Drop lines whose products no longer exist
         if (!state) return;
         const validIds = new Set(products.map((p) => p.id));
         state.lines = state.lines.filter((l) => validIds.has(l.productId));

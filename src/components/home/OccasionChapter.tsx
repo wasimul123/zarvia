@@ -6,8 +6,10 @@ import { useRef } from "react";
 import {
   formatPrice,
   getProductsByOccasion,
+  productCover,
   type Occasion,
 } from "@/data/products";
+import { ProductImage } from "@/components/product/ProductImage";
 
 type Props = {
   occasion: Occasion;
@@ -51,16 +53,17 @@ export function OccasionChapter({ occasion, title, line, index }: Props) {
           {featured ? (
             <Link
               href={`/product/${featured.slug}`}
-              className="relative block aspect-[4/5] w-full overflow-hidden sm:aspect-[4/5]"
+              className="relative block aspect-[4/5] w-full overflow-hidden bg-mist-deep sm:aspect-[4/5]"
               aria-label={`View ${featured.name}`}
             >
-              <div
-                className="media-fill transition-transform duration-700 hover:scale-[1.03]"
-                style={{ background: featured.placeholderHue }}
+              <ProductImage
+                src={productCover(featured)}
+                alt={featured.name}
+                className="transition-transform duration-700 hover:scale-[1.03]"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 silk-sheen opacity-40" />
-              <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8">
-                <p className="font-display text-[0.65rem] tracking-[0.2em] uppercase text-pearl/80">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/70 to-transparent p-5 sm:p-8">
+                <p className="font-display text-[0.65rem] tracking-[0.2em] uppercase text-pearl/90">
                   {featured.shortDescription}
                 </p>
               </div>
@@ -73,13 +76,15 @@ export function OccasionChapter({ occasion, title, line, index }: Props) {
                 <Link
                   key={p.id}
                   href={`/product/${p.slug}`}
-                  className="group relative aspect-[3/4] h-auto w-[28vw] min-w-[5.5rem] max-w-[7.5rem] shrink-0 snap-start overflow-hidden sm:h-32 sm:w-28 sm:max-w-none"
+                  className="group relative aspect-[3/4] h-auto w-[28vw] min-w-[5.5rem] max-w-[7.5rem] shrink-0 snap-start overflow-hidden bg-mist-deep sm:h-32 sm:w-28 sm:max-w-none"
                 >
-                  <div
-                    className="media-fill transition-transform duration-500 group-hover:scale-105"
-                    style={{ background: p.placeholderHue }}
+                  <ProductImage
+                    src={productCover(p)}
+                    alt={p.name}
+                    className="transition-transform duration-500 group-hover:scale-105"
+                    sizes="120px"
                   />
-                  <span className="absolute inset-x-0 bottom-0 bg-ink/40 p-2 font-display text-[0.55rem] tracking-wider uppercase text-pearl">
+                  <span className="absolute inset-x-0 bottom-0 bg-ink/50 p-2 font-display text-[0.55rem] tracking-wider uppercase text-pearl">
                     {p.name.split(" ").slice(0, 2).join(" ")}
                   </span>
                 </Link>

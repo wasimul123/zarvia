@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { formatPrice, type Product } from "@/data/products";
+import { formatPrice, productCover, type Product } from "@/data/products";
+import { ProductImage } from "@/components/product/ProductImage";
 
 type Props = {
   product: Product;
@@ -8,15 +9,19 @@ type Props = {
 
 export function ProductCard({ product, tone = "light" }: Props) {
   const isDark = tone === "dark";
+  const cover = productCover(product);
 
   return (
     <Link href={`/product/${product.slug}`} className="group block w-full">
-      <div className="relative aspect-[4/5] w-full overflow-hidden">
-        <div
-          className="media-fill transition-transform duration-700 group-hover:scale-[1.04]"
-          style={{ background: product.placeholderHue }}
-        />
-        <div className="absolute inset-0 silk-sheen opacity-30" />
+      <div className="relative aspect-[4/5] w-full overflow-hidden bg-mist-deep">
+        {cover ? (
+          <ProductImage
+            src={cover}
+            alt={product.name}
+            className="transition-transform duration-700 group-hover:scale-[1.03]"
+            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 25vw"
+          />
+        ) : null}
       </div>
       <div className="mt-3 flex items-start justify-between gap-3 sm:mt-4 sm:items-baseline">
         <div className="min-w-0 flex-1">
