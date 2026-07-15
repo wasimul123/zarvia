@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#d9cfc0"/>
+      <stop offset="40%" stop-color="#a89a86"/>
+      <stop offset="100%" stop-color="#2a2e36"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#g)"/>
+  <path d="M360 280 L400 520 L440 280" stroke="#f4f6f8" stroke-width="1.2" opacity="0.5" fill="none"/>
+  <circle cx="360" cy="270" r="14" stroke="#d9cfc0" stroke-width="1" fill="none" opacity="0.7"/>
+  <circle cx="440" cy="270" r="14" stroke="#d9cfc0" stroke-width="1" fill="none" opacity="0.7"/>
+  <circle cx="400" cy="540" r="10" fill="#d9cfc0" opacity="0.75"/>
+  <text x="40" y="940" fill="#f4f6f8" font-family="system-ui,sans-serif" font-size="18" letter-spacing="4" opacity="0.55">ZARVIA PLACEHOLDER</text>
+</svg>

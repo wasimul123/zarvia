@@ -1,0 +1,173 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+:root {
+  --mist: #e8eef2;
+  --mist-deep: #d4dde6;
+  --graphite: #1a1d23;
+  --ink: #0e1014;
+  --silver: #c5ccd6;
+  --champagne: #d9cfc0;
+  --pearl: #f4f6f8;
+  --metal: #8a919c;
+  --background: var(--mist);
+  --foreground: var(--graphite);
+  --muted: #5c6570;
+  --accent: var(--champagne);
+  --accent-strong: #b8a892;
+  --surface: rgba(244, 246, 248, 0.72);
+  --line: rgba(26, 29, 35, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-mist: var(--mist);
+  --color-mist-deep: var(--mist-deep);
+  --color-graphite: var(--graphite);
+  --color-ink: var(--ink);
+  --color-silver: var(--silver);
+  --color-champagne: var(--champagne);
+  --color-pearl: var(--pearl);
+  --color-metal: var(--metal);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --font-display: var(--font-syne);
+  --font-body: var(--font-newsreader);
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), Georgia, serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--champagne) 55%, transparent);
+  color: var(--ink);
+}
+
+.font-display {
+  font-family: var(--font-display), system-ui, sans-serif;
+}
+
+.font-body {
+  font-family: var(--font-body), Georgia, serif;
+}
+
+/* Atmosphere layers — not a flat wash */
+.atmosphere {
+  background:
+    radial-gradient(120% 80% at 80% 0%, rgba(197, 204, 214, 0.55), transparent 55%),
+    radial-gradient(90% 70% at 10% 90%, rgba(217, 207, 192, 0.35), transparent 50%),
+    linear-gradient(165deg, var(--pearl) 0%, var(--mist) 42%, var(--mist-deep) 100%);
+}
+
+.atmosphere-dark {
+  background:
+    radial-gradient(100% 80% at 70% 20%, rgba(197, 204, 214, 0.18), transparent 50%),
+    radial-gradient(80% 60% at 20% 80%, rgba(217, 207, 192, 0.12), transparent 45%),
+    linear-gradient(160deg, #12151a 0%, #1a1d23 45%, #242830 100%);
+}
+
+.film-grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.silk-sheen {
+  background:
+    linear-gradient(
+      115deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.35) 45%,
+      transparent 70%
+    );
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  background: var(--graphite);
+  color: var(--pearl);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--ink);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border: 1px solid var(--line);
+  color: var(--graphite);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--graphite);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.input-field {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0.85rem 1rem;
+  font-family: var(--font-body), Georgia, serif;
+  font-size: 1rem;
+  color: var(--graphite);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: var(--metal);
+}
+
+.input-field::placeholder {
+  color: var(--metal);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
