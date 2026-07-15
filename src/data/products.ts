@@ -75,7 +75,7 @@ export const categories: {
 /**
  * Current studio edit — originals stored in /public/products as uploaded.
  * Do not resize source files; UI serves them with next/image unoptimized.
- * Prices in INR (₹500–₹1500 for this edit).
+ * Prices in INR (₹300–₹1000 for this edit).
  */
 export const products: Product[] = [
   {
@@ -84,7 +84,7 @@ export const products: Product[] = [
     name: "Emerald Verdant Teardrops",
     occasion: "ceremony",
     category: "earrings",
-    price: 1499,
+    price: 999,
     limitedQty: 11,
     featured: true,
     shortDescription: "Deep green pears with a crystal spray along the drop.",
@@ -104,7 +104,7 @@ export const products: Product[] = [
     name: "Rhombus Pavé Drops",
     occasion: "evening",
     category: "earrings",
-    price: 1099,
+    price: 599,
     limitedQty: 14,
     featured: true,
     shortDescription: "Baguette stud above a crystal-filled diamond frame.",
@@ -120,7 +120,7 @@ export const products: Product[] = [
     name: "Ribbon Baguette Studs",
     occasion: "gift",
     category: "earrings",
-    price: 899,
+    price: 449,
     limitedQty: 16,
     shortDescription: "Open swirl studs with baguette ribbons of crystal.",
     longDescription:
@@ -135,7 +135,7 @@ export const products: Product[] = [
     name: "Ruby Star Halo Drops",
     occasion: "ceremony",
     category: "earrings",
-    price: 1449,
+    price: 979,
     limitedQty: 10,
     featured: true,
     shortDescription: "Crimson emerald-cut centres under a starburst post.",
@@ -151,7 +151,7 @@ export const products: Product[] = [
     name: "Crystal Pear Halo Drops",
     occasion: "ceremony",
     category: "earrings",
-    price: 1299,
+    price: 749,
     limitedQty: 12,
     shortDescription: "Clear pear drop with a petal spray and full halo.",
     longDescription:
@@ -166,7 +166,7 @@ export const products: Product[] = [
     name: "Twisted Orbit Drops",
     occasion: "evening",
     category: "earrings",
-    price: 1199,
+    price: 699,
     limitedQty: 13,
     featured: true,
     shortDescription: "A twisted gold bar over a pavé crystal circle.",
@@ -182,7 +182,7 @@ export const products: Product[] = [
     name: "Silver Marquise Cascade",
     occasion: "evening",
     category: "earrings",
-    price: 1349,
+    price: 899,
     limitedQty: 8,
     featured: true,
     shortDescription: "Long silver-tone tapers of marquise crystal.",
@@ -198,7 +198,7 @@ export const products: Product[] = [
     name: "Open Pavé Teardrops",
     occasion: "evening",
     category: "earrings",
-    price: 999,
+    price: 499,
     limitedQty: 15,
     shortDescription: "Open teardrop frame with a pavé lower arc.",
     longDescription:
@@ -213,7 +213,7 @@ export const products: Product[] = [
     name: "Gold Marquise Cascade",
     occasion: "evening",
     category: "earrings",
-    price: 1299,
+    price: 799,
     limitedQty: 9,
     shortDescription: "Gold-tone lattice that narrows into a crystal trail.",
     longDescription:
@@ -228,7 +228,7 @@ export const products: Product[] = [
     name: "Pearl Fan Studs",
     occasion: "ceremony",
     category: "earrings",
-    price: 1399,
+    price: 949,
     limitedQty: 9,
     featured: true,
     shortDescription: "Lustrous pearl over a crystal scallop fan.",
@@ -244,7 +244,7 @@ export const products: Product[] = [
     name: "Crystal Bloom Huggies",
     occasion: "gift",
     category: "earrings",
-    price: 999,
+    price: 549,
     limitedQty: 15,
     shortDescription: "Half-hoops covered in a crystal lattice bloom.",
     longDescription:
@@ -259,7 +259,7 @@ export const products: Product[] = [
     name: "Pearl Cushion Drops",
     occasion: "gift",
     category: "earrings",
-    price: 1249,
+    price: 849,
     limitedQty: 12,
     shortDescription: "Pearl halo stud into a pearl cushion frame.",
     longDescription:
@@ -274,7 +274,7 @@ export const products: Product[] = [
     name: "Leaf Marquise Drops",
     occasion: "ceremony",
     category: "earrings",
-    price: 1149,
+    price: 649,
     limitedQty: 13,
     shortDescription: "Diamond stud with a leaf frame of marquise stones.",
     longDescription:
@@ -289,7 +289,7 @@ export const products: Product[] = [
     name: "Helix Twist Drops",
     occasion: "gift",
     category: "earrings",
-    price: 749,
+    price: 399,
     limitedQty: 16,
     shortDescription: "Hammered gold spiral under a single clear stone.",
     longDescription:
@@ -304,7 +304,7 @@ export const products: Product[] = [
     name: "Gilded Blossom Studs",
     occasion: "gift",
     category: "earrings",
-    price: 599,
+    price: 349,
     limitedQty: 18,
     shortDescription: "Five-petal stainless blooms in polished gold tone.",
     longDescription:
