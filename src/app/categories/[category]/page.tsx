@@ -36,7 +36,7 @@ export default async function CategoryDetailPage({ params }: Props) {
   const pieces = getProductsByCategory(category as Category);
 
   return (
-    <div className="atmosphere min-h-screen px-5 pb-24 pt-28 sm:px-8 lg:px-10">
+    <div className="atmosphere min-h-screen safe-px pb-20 pt-24 sm:px-8 sm:pb-24 sm:pt-28 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <PageHeader
           eyebrow="Category"

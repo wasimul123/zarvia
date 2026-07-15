@@ -98,13 +98,13 @@ export function AddToCart({ product }: Props) {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-3 pt-2">
-        <button type="button" onClick={handleAdd} className="btn-primary">
+      <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap">
+        <button type="button" onClick={handleAdd} className="btn-primary sm:w-auto">
           {added ? "Added" : "Add to cart"}
         </button>
         <button
           type="button"
-          className="btn-ghost"
+          className="btn-ghost sm:w-auto"
           onClick={() => {
             handleAdd();
             router.push("/checkout");

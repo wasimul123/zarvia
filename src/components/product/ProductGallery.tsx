@@ -16,30 +16,31 @@ export function ProductGallery({ product }: Props) {
   ];
 
   return (
-    <div className="flex flex-col gap-3">
-      <div className="relative aspect-[4/5] w-full overflow-hidden">
+    <div className="flex w-full flex-col gap-3">
+      {/* Full-bleed on very small screens for immersive media */}
+      <div className="relative -mx-5 aspect-[4/5] w-[calc(100%+2.5rem)] overflow-hidden sm:mx-0 sm:aspect-[4/5] sm:w-full">
         <div
           key={active}
-          className="absolute inset-0 transition-opacity duration-500"
+          className="media-fill transition-opacity duration-500"
           style={{ background: panels[active] }}
         />
         <div className="absolute inset-0 silk-sheen opacity-35" />
-        <p className="absolute bottom-5 left-5 font-display text-[0.6rem] tracking-[0.2em] uppercase text-pearl/70">
+        <p className="absolute bottom-4 left-4 font-display text-[0.6rem] tracking-[0.2em] uppercase text-pearl/70 sm:bottom-5 sm:left-5">
           Placeholder · Image {active + 1}
         </p>
       </div>
-      <div className="flex gap-3">
+      <div className="flex snap-x gap-2 overflow-x-auto scrollbar-hide sm:gap-3">
         {panels.map((panel, i) => (
           <button
             key={i}
             type="button"
             onClick={() => setActive(i)}
             aria-label={`View image ${i + 1}`}
-            className={`relative h-20 w-16 overflow-hidden sm:h-24 sm:w-20 ${
+            className={`relative aspect-[4/5] h-16 w-auto shrink-0 snap-start overflow-hidden sm:h-24 sm:w-20 ${
               active === i ? "ring-1 ring-graphite" : "opacity-70"
             }`}
           >
-            <div className="absolute inset-0" style={{ background: panel }} />
+            <div className="media-fill" style={{ background: panel }} />
           </button>
         ))}
       </div>

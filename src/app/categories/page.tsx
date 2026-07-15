@@ -20,7 +20,7 @@ const categoryHue: Record<string, string> = {
 
 export default function CategoriesPage() {
   return (
-    <div className="atmosphere min-h-screen px-5 pb-24 pt-28 sm:px-8 lg:px-10">
+    <div className="atmosphere min-h-screen safe-px pb-20 pt-24 sm:px-8 sm:pb-24 sm:pt-28 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <PageHeader
           eyebrow="Explore"
@@ -34,7 +34,7 @@ export default function CategoriesPage() {
               <Link
                 key={cat.id}
                 href={`/categories/${cat.id}`}
-                className="group relative block min-h-[280px] overflow-hidden sm:min-h-[340px]"
+                className="group relative block min-h-[240px] overflow-hidden sm:min-h-[340px]"
               >
                 <div
                   className="absolute inset-0 transition-transform duration-700 group-hover:scale-[1.03]"

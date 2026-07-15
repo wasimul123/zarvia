@@ -34,10 +34,10 @@ export function CartLines() {
           >
             <Link
               href={`/product/${line.slug}`}
-              className="relative h-28 w-24 shrink-0 overflow-hidden sm:h-32 sm:w-28"
+              className="relative aspect-[4/5] w-full max-w-[140px] shrink-0 overflow-hidden sm:h-32 sm:w-28 sm:max-w-none sm:aspect-auto"
             >
               <div
-                className="absolute inset-0"
+                className="media-fill"
                 style={{ background: line.placeholderHue }}
               />
             </Link>

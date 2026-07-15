@@ -10,18 +10,18 @@ export function ProductCard({ product, tone = "light" }: Props) {
   const isDark = tone === "dark";
 
   return (
-    <Link href={`/product/${product.slug}`} className="group block">
-      <div className="relative aspect-[4/5] overflow-hidden">
+    <Link href={`/product/${product.slug}`} className="group block w-full">
+      <div className="relative aspect-[4/5] w-full overflow-hidden">
         <div
-          className="absolute inset-0 transition-transform duration-700 group-hover:scale-[1.04]"
+          className="media-fill transition-transform duration-700 group-hover:scale-[1.04]"
           style={{ background: product.placeholderHue }}
         />
         <div className="absolute inset-0 silk-sheen opacity-30" />
       </div>
-      <div className="mt-4 flex items-baseline justify-between gap-3">
-        <div>
+      <div className="mt-3 flex items-start justify-between gap-3 sm:mt-4 sm:items-baseline">
+        <div className="min-w-0 flex-1">
           <p
-            className={`font-display text-lg ${
+            className={`font-display text-base leading-snug sm:text-lg ${
               isDark ? "text-pearl" : "text-graphite"
             }`}
           >
@@ -36,7 +36,7 @@ export function ProductCard({ product, tone = "light" }: Props) {
           </p>
         </div>
         <p
-          className={`shrink-0 font-body ${
+          className={`shrink-0 pt-0.5 font-body text-sm sm:text-base ${
             isDark ? "text-silver" : "text-muted"
           }`}
         >

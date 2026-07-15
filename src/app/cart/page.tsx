@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function CartPage() {
   return (
-    <div className="atmosphere min-h-screen px-5 pb-24 pt-28 sm:px-8 lg:px-10">
+    <div className="atmosphere min-h-screen safe-px pb-20 pt-24 sm:px-8 sm:pb-24 sm:pt-28 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <p className="font-display text-[0.65rem] tracking-[0.24em] uppercase text-metal">
           Your selection

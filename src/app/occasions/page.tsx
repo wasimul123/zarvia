@@ -19,7 +19,7 @@ const occasionHue: Record<string, string> = {
 
 export default function OccasionsPage() {
   return (
-    <div className="atmosphere min-h-screen px-5 pb-24 pt-28 sm:px-8 lg:px-10">
+    <div className="atmosphere min-h-screen safe-px pb-20 pt-24 sm:px-8 sm:pb-24 sm:pt-28 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <PageHeader
           eyebrow="Explore"
@@ -33,7 +33,7 @@ export default function OccasionsPage() {
               <Link
                 key={occ.id}
                 href={`/occasions/${occ.id}`}
-                className="group relative block min-h-[420px] overflow-hidden"
+                className="group relative block min-h-[320px] overflow-hidden sm:min-h-[380px] lg:min-h-[420px]"
               >
                 <div
                   className="absolute inset-0 transition-transform duration-700 group-hover:scale-[1.03]"

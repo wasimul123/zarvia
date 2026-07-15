@@ -36,22 +36,22 @@ export default async function ProductPage({ params }: Props) {
   const related = getRelatedProducts(product);
 
   return (
-    <div className="atmosphere min-h-screen px-5 pb-24 pt-28 sm:px-8 lg:px-10">
+    <div className="atmosphere min-h-screen safe-px pb-20 pt-20 sm:px-8 sm:pb-24 sm:pt-28 lg:px-10">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
           <ProductGallery product={product} />
 
           <div className="lg:pt-4">
             <p className="font-display text-[0.65rem] tracking-[0.22em] uppercase text-metal">
               Limited edition · {product.limitedQty} remaining
             </p>
-            <h1 className="mt-3 font-display text-4xl tracking-tight text-graphite sm:text-5xl">
+            <h1 className="mt-3 font-display text-3xl tracking-tight text-graphite sm:text-4xl lg:text-5xl">
               {product.name}
             </h1>
-            <p className="mt-4 font-display text-2xl text-graphite">
+            <p className="mt-3 font-display text-xl text-graphite sm:mt-4 sm:text-2xl">
               {formatPrice(product.price)}
             </p>
-            <p className="mt-6 max-w-md font-body text-lg leading-relaxed text-muted">
+            <p className="mt-5 max-w-md font-body text-base leading-relaxed text-muted sm:mt-6 sm:text-lg">
               {product.longDescription}
             </p>
             <AddToCart product={product} />

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Newsreader, Syne } from "next/font/google";
 import Link from "next/link";
 import { SiteNav } from "@/components/nav/SiteNav";
@@ -25,6 +25,13 @@ export const metadata: Metadata = {
   },
   description:
     "Zarvia handpicks unique imitation jewellery for special occasions. Limited editions — never remade.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#e8eef2",
 };
 
 const footerExplore = [

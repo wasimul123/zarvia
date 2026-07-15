@@ -171,3 +171,42 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Responsive media plane — fills parent, never overflows */
+.media-fill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Horizontal padding with notch-safe insets */
+.safe-px {
+  padding-left: max(1.25rem, env(safe-area-inset-left));
+  padding-right: max(1.25rem, env(safe-area-inset-right));
+}
+
+@media (min-width: 640px) {
+  .safe-px {
+    padding-left: max(2rem, env(safe-area-inset-left));
+    padding-right: max(2rem, env(safe-area-inset-right));
+  }
+}
+
+/* Prefer stacking and touch-friendly taps on coarse pointers */
+@media (max-width: 767px) {
+  .btn-primary,
+  .btn-ghost {
+    width: 100%;
+    min-height: 3rem;
+    padding-top: 0.95rem;
+    padding-bottom: 0.95rem;
+  }
+
+  .hero-jewel {
+    transform: translate(-18%, 4%);
+  }
+}

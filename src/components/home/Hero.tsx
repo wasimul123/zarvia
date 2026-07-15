@@ -10,9 +10,9 @@ export function Hero() {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "28%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0.15]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.06]);
 
   return (
     <section
@@ -28,7 +28,7 @@ export function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 80% 60% at 60% 40%, rgba(197,204,214,0.22), transparent 60%), linear-gradient(165deg, #0e1014 0%, #1a1d23 50%, #242830 100%)",
+              "radial-gradient(ellipse 90% 70% at 50% 35%, rgba(197,204,214,0.22), transparent 60%), linear-gradient(165deg, #0e1014 0%, #1a1d23 50%, #242830 100%)",
           }}
         />
         <svg
@@ -38,37 +38,39 @@ export function Hero() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <ellipse
-            cx="920"
-            cy="420"
-            rx="280"
-            ry="280"
-            stroke="url(#metalGrad)"
-            strokeWidth="1.2"
-            opacity="0.7"
-          />
-          <ellipse
-            cx="920"
-            cy="420"
-            rx="180"
-            ry="180"
-            stroke="url(#metalGrad)"
-            strokeWidth="0.8"
-            opacity="0.5"
-          />
-          <circle cx="920" cy="420" r="8" fill="#d9cfc0" opacity="0.85" />
-          <path
-            d="M640 520 C720 380, 820 340, 920 420 C1020 500, 1120 540, 1200 480"
-            stroke="url(#metalGrad)"
-            strokeWidth="1.5"
-            opacity="0.65"
-          />
-          <path
-            d="M700 560 C780 430, 860 390, 940 450"
-            stroke="#c5ccd6"
-            strokeWidth="0.7"
-            opacity="0.4"
-          />
+          <g className="hero-jewel">
+            <ellipse
+              cx="920"
+              cy="420"
+              rx="280"
+              ry="280"
+              stroke="url(#metalGrad)"
+              strokeWidth="1.2"
+              opacity="0.7"
+            />
+            <ellipse
+              cx="920"
+              cy="420"
+              rx="180"
+              ry="180"
+              stroke="url(#metalGrad)"
+              strokeWidth="0.8"
+              opacity="0.5"
+            />
+            <circle cx="920" cy="420" r="8" fill="#d9cfc0" opacity="0.85" />
+            <path
+              d="M640 520 C720 380, 820 340, 920 420 C1020 500, 1120 540, 1200 480"
+              stroke="url(#metalGrad)"
+              strokeWidth="1.5"
+              opacity="0.65"
+            />
+            <path
+              d="M700 560 C780 430, 860 390, 940 450"
+              stroke="#c5ccd6"
+              strokeWidth="0.7"
+              opacity="0.4"
+            />
+          </g>
           <defs>
             <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stopColor="#d9cfc0" />
@@ -82,14 +84,14 @@ export function Hero() {
 
       <motion.div
         style={{ opacity }}
-        className="relative z-10 w-full px-5 pb-16 pt-28 sm:px-8 sm:pb-20 lg:px-10 lg:pb-24"
+        className="relative z-10 w-full safe-px pb-[max(4rem,env(safe-area-inset-bottom))] pt-24 sm:px-8 sm:pb-20 lg:px-10 lg:pb-24"
       >
         <div className="mx-auto max-w-7xl">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.1 }}
-            className="font-display text-[0.7rem] tracking-[0.28em] uppercase text-silver/80"
+            className="font-display text-[0.65rem] tracking-[0.24em] uppercase text-silver/80 sm:text-[0.7rem] sm:tracking-[0.28em]"
           >
             Limited edition · Handpicked
           </motion.p>
@@ -98,7 +100,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-4 font-display text-[clamp(3.5rem,14vw,9.5rem)] font-medium leading-[0.88] tracking-[-0.03em] text-pearl"
+            className="mt-3 font-display text-[clamp(3.25rem,18vw,9.5rem)] font-medium leading-[0.88] tracking-[-0.03em] text-pearl"
           >
             Zarvia
           </motion.h1>
@@ -107,7 +109,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.45 }}
-            className="mt-6 max-w-md font-body text-lg leading-relaxed text-silver/90 sm:text-xl"
+            className="mt-5 max-w-md font-body text-base leading-relaxed text-silver/90 sm:mt-6 sm:text-lg lg:text-xl"
           >
             Rare imitation jewellery, curated for occasions that will not
             repeat.
@@ -117,7 +119,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.65 }}
-            className="mt-10 flex flex-wrap gap-8"
+            className="mt-8 flex flex-col gap-4 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-8"
           >
             <Link
               href="/studio"
