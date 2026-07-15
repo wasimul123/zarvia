@@ -17,15 +17,17 @@ export function RelatedProducts({ products }: Props) {
         Related pieces
       </h2>
 
-      <div className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 scrollbar-hide sm:hidden">
-        {products.map((product) => (
-          <div
-            key={product.id}
-            className="w-[70vw] max-w-[260px] shrink-0 snap-center"
-          >
-            <ProductCard product={product} />
-          </div>
-        ))}
+      <div className="mt-8 min-w-0 max-w-full sm:hidden">
+        <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pb-2 scrollbar-hide">
+          {products.map((product) => (
+            <div
+              key={product.id}
+              className="w-[70vw] max-w-[260px] shrink-0 snap-center"
+            >
+              <ProductCard product={product} />
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="mt-10 hidden gap-8 sm:grid sm:grid-cols-2 lg:grid-cols-3">

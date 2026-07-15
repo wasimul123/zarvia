@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   formatPrice,
   getProductsByOccasion,
@@ -18,8 +18,21 @@ type Props = {
   index: number;
 };
 
+function useIsLg() {
+  const [isLg, setIsLg] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const update = () => setIsLg(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+  return isLg;
+}
+
 export function OccasionChapter({ occasion, title, line, index }: Props) {
   const ref = useRef<HTMLElement>(null);
+  const isLg = useIsLg();
   const products = getProductsByOccasion(occasion);
   const featured = products[0];
   const { scrollYProgress } = useScroll({
@@ -38,64 +51,64 @@ export function OccasionChapter({ occasion, title, line, index }: Props) {
   return (
     <section
       ref={ref}
-      className="relative flex items-center overflow-hidden atmosphere py-16 sm:py-24 lg:min-h-[100svh] lg:py-24"
+      className="relative w-full max-w-[100vw] overflow-x-hidden atmosphere py-16 sm:py-24 lg:min-h-[100svh] lg:py-24"
     >
       <div
-        className={`mx-auto grid w-full max-w-7xl items-center gap-8 safe-px sm:gap-10 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:px-10 ${
+        className={`mx-auto grid w-full max-w-7xl min-w-0 items-center gap-8 safe-px sm:gap-10 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:px-10 ${
           isOdd ? "lg:[&>*:first-child]:order-2" : ""
         }`}
       >
-        {/* On mobile: media first for visual browsing */}
-        <motion.div
-          style={{ y: imageY }}
-          className="relative order-1 lg:order-none"
-        >
+        <div className="relative order-1 min-w-0 max-w-full lg:order-none">
           {featured ? (
-            <Link
-              href={`/product/${featured.slug}`}
-              className="relative block aspect-[4/5] w-full overflow-hidden bg-mist-deep sm:aspect-[4/5]"
-              aria-label={`View ${featured.name}`}
-            >
-              <ProductImage
-                src={productCover(featured)}
-                alt={featured.name}
-                className="transition-transform duration-700 hover:scale-[1.03]"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/70 to-transparent p-5 sm:p-8">
-                <p className="font-display text-[0.65rem] tracking-[0.2em] uppercase text-pearl/90">
-                  {featured.shortDescription}
-                </p>
-              </div>
-            </Link>
+            <motion.div style={isLg ? { y: imageY } : undefined}>
+              <Link
+                href={`/product/${featured.slug}`}
+                className="relative mx-auto block aspect-[3/4] w-full max-w-full overflow-hidden bg-mist-deep"
+                aria-label={`View ${featured.name}`}
+              >
+                <ProductImage
+                  src={productCover(featured)}
+                  alt={featured.name}
+                  fit="contain"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/75 via-ink/35 to-transparent px-4 pb-4 pt-10 sm:px-6 sm:pb-6">
+                  <p className="line-clamp-2 break-words font-display text-[0.65rem] leading-relaxed tracking-[0.12em] uppercase text-pearl sm:tracking-[0.16em]">
+                    {featured.shortDescription}
+                  </p>
+                </div>
+              </Link>
+            </motion.div>
           ) : null}
 
-          {products.length > 1 && (
-            <div className="mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 scrollbar-hide">
-              {products.slice(1).map((p) => (
-                <Link
-                  key={p.id}
-                  href={`/product/${p.slug}`}
-                  className="group relative aspect-[3/4] h-auto w-[28vw] min-w-[5.5rem] max-w-[7.5rem] shrink-0 snap-start overflow-hidden bg-mist-deep sm:h-32 sm:w-28 sm:max-w-none"
-                >
-                  <ProductImage
-                    src={productCover(p)}
-                    alt={p.name}
-                    className="transition-transform duration-500 group-hover:scale-105"
-                    sizes="120px"
-                  />
-                  <span className="absolute inset-x-0 bottom-0 bg-ink/50 p-2 font-display text-[0.55rem] tracking-wider uppercase text-pearl">
-                    {p.name.split(" ").slice(0, 2).join(" ")}
-                  </span>
-                </Link>
-              ))}
+          {products.length > 1 ? (
+            <div className="mt-3 min-w-0 max-w-full">
+              <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain pb-1 scrollbar-hide">
+                {products.slice(1).map((p) => (
+                  <Link
+                    key={p.id}
+                    href={`/product/${p.slug}`}
+                    className="group relative h-28 w-[5.5rem] shrink-0 snap-start overflow-hidden bg-mist-deep sm:h-32 sm:w-28"
+                  >
+                    <ProductImage
+                      src={productCover(p)}
+                      alt={p.name}
+                      fit="contain"
+                      sizes="112px"
+                    />
+                    <span className="absolute inset-x-0 bottom-0 truncate bg-ink/55 px-1.5 py-1.5 font-display text-[0.55rem] tracking-wider uppercase text-pearl">
+                      {p.name.split(" ").slice(0, 2).join(" ")}
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </div>
-          )}
-        </motion.div>
+          ) : null}
+        </div>
 
         <motion.div
-          style={{ opacity: textOpacity }}
-          className="relative z-10 order-2 lg:order-none"
+          style={isLg ? { opacity: textOpacity } : undefined}
+          className="relative z-10 order-2 min-w-0 max-w-full lg:order-none"
         >
           <p className="font-display text-[0.65rem] tracking-[0.24em] uppercase text-metal">
             Chapter {String(index + 1).padStart(2, "0")}

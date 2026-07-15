@@ -34,7 +34,8 @@ export function CategoryBrowse() {
         </motion.div>
 
         {/* Mobile: horizontal snap carousel */}
-        <div className="mt-8 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 scrollbar-hide sm:hidden">
+        <div className="mt-8 min-w-0 max-w-full sm:hidden">
+          <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain px-4 pb-2 scrollbar-hide">
           {categories.map((cat) => (
             <Link
               key={cat.id}
@@ -54,6 +55,7 @@ export function CategoryBrowse() {
               </div>
             </Link>
           ))}
+          </div>
         </div>
 
         {/* Tablet+ grid */}

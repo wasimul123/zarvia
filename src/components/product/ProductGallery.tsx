@@ -15,8 +15,8 @@ export function ProductGallery({ product }: Props) {
 
   if (!current) {
     return (
-      <div className="relative aspect-[4/5] w-full bg-mist-deep">
-        <p className="absolute inset-0 flex items-center justify-center font-display text-sm uppercase tracking-widest text-metal">
+      <div className="flex aspect-[3/4] w-full items-center justify-center bg-mist-deep">
+        <p className="font-display text-sm uppercase tracking-widest text-metal">
           Image forthcoming
         </p>
       </div>
@@ -25,32 +25,30 @@ export function ProductGallery({ product }: Props) {
 
   return (
     <div className="flex w-full flex-col gap-3">
-      <div className="relative -mx-5 aspect-[4/5] w-[calc(100%+2.5rem)] overflow-hidden bg-mist-deep sm:mx-0 sm:w-full">
+      {/* Natural aspect — avoids crop / letterbox stretch on mobile */}
+      <div className="relative w-full overflow-hidden bg-mist-deep">
         <ProductImage
           key={current}
           src={current}
           alt={`${product.name} — photo ${active + 1}`}
+          fill={false}
           priority
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
       {images.length > 1 ? (
-        <div className="flex snap-x gap-2 overflow-x-auto scrollbar-hide sm:gap-3">
+        <div className="flex snap-x gap-2 overflow-x-auto pb-0.5 scrollbar-hide sm:gap-3">
           {images.map((src, i) => (
             <button
               key={src}
               type="button"
               onClick={() => setActive(i)}
               aria-label={`View image ${i + 1}`}
-              className={`relative aspect-[4/5] h-16 w-auto shrink-0 snap-start overflow-hidden sm:h-24 sm:w-20 ${
+              className={`relative h-16 w-14 shrink-0 snap-start overflow-hidden bg-mist-deep sm:h-24 sm:w-20 ${
                 active === i ? "ring-1 ring-graphite" : "opacity-70"
               }`}
             >
-              <ProductImage
-                src={src}
-                alt=""
-                sizes="96px"
-              />
+              <ProductImage src={src} alt="" sizes="80px" fit="cover" />
             </button>
           ))}
         </div>

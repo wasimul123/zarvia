@@ -4,10 +4,11 @@ type Props = {
   src: string;
   alt: string;
   className?: string;
-  /** Prefer fill inside a positioned parent */
+  /** Prefer fill inside a positioned parent with explicit size */
   fill?: boolean;
   sizes?: string;
   priority?: boolean;
+  fit?: "contain" | "cover";
 };
 
 /**
@@ -21,7 +22,10 @@ export function ProductImage({
   fill = true,
   sizes = "(max-width: 768px) 100vw, 50vw",
   priority = false,
+  fit = "cover",
 }: Props) {
+  const fitClass = fit === "contain" ? "object-contain" : "object-cover";
+
   if (fill) {
     return (
       <Image
@@ -31,7 +35,7 @@ export function ProductImage({
         unoptimized
         priority={priority}
         sizes={sizes}
-        className={`object-cover ${className}`.trim()}
+        className={`h-full w-full ${fitClass} object-center ${className}`.trim()}
       />
     );
   }
@@ -41,11 +45,11 @@ export function ProductImage({
       src={src}
       alt={alt}
       width={1024}
-      height={1024}
+      height={1365}
       unoptimized
       priority={priority}
       sizes={sizes}
-      className={className}
+      className={`h-auto w-full ${className}`.trim()}
     />
   );
 }

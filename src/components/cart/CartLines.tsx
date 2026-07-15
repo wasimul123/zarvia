@@ -35,7 +35,7 @@ export function CartLines() {
           >
             <Link
               href={`/product/${line.slug}`}
-              className="relative aspect-[4/5] w-full max-w-[140px] shrink-0 overflow-hidden bg-mist-deep sm:h-32 sm:w-28 sm:max-w-none sm:aspect-auto"
+              className="relative aspect-[3/4] w-full max-w-[140px] shrink-0 overflow-hidden bg-mist-deep sm:h-32 sm:w-28 sm:max-w-none sm:aspect-auto"
             >
               {line.image ? (
                 <ProductImage

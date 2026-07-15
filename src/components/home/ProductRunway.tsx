@@ -73,9 +73,9 @@ function DesktopRunway() {
               href={`/product/${product.slug}`}
               className="group relative block w-[48vw] max-w-[420px] shrink-0 lg:w-[32vw]"
             >
-              <div className="relative aspect-[3/4] w-full overflow-hidden bg-ink">
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-ink/80">
                 <motion.div
-                  initial={{ opacity: 0, scale: 1.04 }}
+                  initial={{ opacity: 0, scale: 1.02 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.8, delay: i * 0.04 }}

@@ -13,13 +13,14 @@ export function ProductCard({ product, tone = "light" }: Props) {
 
   return (
     <Link href={`/product/${product.slug}`} className="group block w-full">
-      <div className="relative aspect-[4/5] w-full overflow-hidden bg-mist-deep">
+      <div className="relative aspect-[3/4] w-full max-w-full overflow-hidden bg-mist-deep">
         {cover ? (
           <ProductImage
             src={cover}
             alt={product.name}
-            className="transition-transform duration-700 group-hover:scale-[1.03]"
-            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 25vw"
+            fit="contain"
+            className="transition-transform duration-700 group-hover:scale-[1.02]"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 45vw, 25vw"
           />
         ) : null}
       </div>

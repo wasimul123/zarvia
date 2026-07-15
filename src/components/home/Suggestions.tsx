@@ -10,13 +10,13 @@ export function Suggestions() {
 
   return (
     <section className="relative overflow-hidden atmosphere py-16 sm:py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto w-full max-w-7xl min-w-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.8 }}
-          className="safe-px flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between sm:px-8 lg:px-10"
+          className="safe-px flex min-w-0 flex-col gap-4 sm:flex-row sm:items-end sm:justify-between sm:px-8 lg:px-10"
         >
           <div>
             <p className="font-display text-[0.65rem] tracking-[0.24em] uppercase text-metal">
@@ -38,16 +38,18 @@ export function Suggestions() {
           </Link>
         </motion.div>
 
-        {/* Mobile snap strip */}
-        <div className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 scrollbar-hide sm:hidden">
-          {pieces.map((product) => (
-            <div
-              key={product.id}
-              className="w-[72vw] max-w-[280px] shrink-0 snap-center"
-            >
-              <ProductCard product={product} />
-            </div>
-          ))}
+        {/* Mobile snap strip — keep in-flow min-w-0 so it can't widen the page */}
+        <div className="mt-8 min-w-0 max-w-full sm:hidden">
+          <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-4 pb-2 scrollbar-hide">
+            {pieces.map((product) => (
+              <div
+                key={product.id}
+                className="w-[72vw] max-w-[280px] shrink-0 snap-center"
+              >
+                <ProductCard product={product} />
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-12 hidden gap-8 px-5 sm:grid sm:grid-cols-2 sm:px-8 lg:grid-cols-4 lg:px-10">
