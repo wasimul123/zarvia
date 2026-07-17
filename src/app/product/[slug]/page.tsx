@@ -43,7 +43,7 @@ export default async function ProductPage({ params }: Props) {
 
           <div className="lg:pt-4">
             <p className="font-display text-[0.65rem] tracking-[0.22em] uppercase text-metal">
-              Limited edition · {product.limitedQty} remaining
+              Limited edition
             </p>
             <h1 className="mt-3 font-display text-3xl tracking-tight text-graphite sm:text-4xl lg:text-5xl">
               {product.name}

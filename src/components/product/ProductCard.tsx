@@ -38,7 +38,7 @@ export function ProductCard({ product, tone = "light" }: Props) {
               isDark ? "text-silver/70" : "text-metal"
             }`}
           >
-            Limited · {product.limitedQty} left
+            Limited edition
           </p>
         </div>
         <p

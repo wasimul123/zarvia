@@ -134,7 +134,7 @@ export function OccasionChapter({ occasion, title, line, index }: Props) {
                 className="group flex w-full max-w-sm flex-col gap-1 border-t border-line pt-6"
               >
                 <span className="font-display text-[0.65rem] tracking-[0.18em] uppercase text-metal">
-                  Featured · Limited · {featured.limitedQty} left
+                  Featured · Limited edition
                 </span>
                 <span className="font-display text-xl text-graphite transition-colors group-hover:text-accent-strong sm:text-2xl">
                   {featured.name}

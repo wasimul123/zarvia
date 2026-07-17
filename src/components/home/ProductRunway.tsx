@@ -94,7 +94,7 @@ function DesktopRunway() {
                     {product.name}
                   </p>
                   <p className="mt-1 font-display text-[0.65rem] tracking-[0.16em] uppercase text-silver/70">
-                    Limited · {product.limitedQty} left
+                    Limited edition
                   </p>
                 </div>
                 <p className="shrink-0 font-body text-silver">
